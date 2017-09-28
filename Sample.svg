@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" version="1.0">
+  <defs>
+    <pattern id="transformedPattern"
+             x="0" y="0" width="10" height="10"
+             patternUnits="userSpaceOnUse"
+             patternTransform="rotate(11)">
+      <circle cx="1" cy="1" r="2" style="stroke: green; fill:none;" />
+    </pattern>
+  </defs>
+  <g>
+    <path style="fill: url(#transformedPattern); "
+          d="M 542 500 L 373 521 L 476 384 L 402 343 L 337 494 L 271 343 L 197 384 L 300 521 L 131 500 L 131 584 L 300 562 L 197 699 L 271 739 L 337 590 L 402 739 L 476 699 L 373 562 L 542 584 L 542 500 Z" />
+  </g>
+</svg>
