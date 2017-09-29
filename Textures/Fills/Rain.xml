@@ -1,0 +1,14 @@
+<svg  version="1.1" width="$width" height="$height"  viewBox="$viewBox" xmlns="http://www.w3.org/2000/svg">
+  <path  style="fill:url(#Rain);" d="$path" />
+  <defs>
+    <pattern id="Rain"
+     x="0" y="0" width="12" height="16"
+     patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+      <path style="stroke:#000000;fill:#000000;"
+          d="M4 .99C4 .445 4.444 0 5 0c.552 0 1 .45 1 .99v4.02C6 5.555 5.556 6 5 6c-.552 0-1-.45-1-.99V.99zm6 8c0-.546.444-.99 1-.99.552 0 1 .45 1 .99v4.02c0 .546-.444.99-1 .99-.552 0-1-.45-1-.99V8.99z" />
+    </pattern>
+  </defs>
+</svg>
+<!--
+Based on http://www.heropatterns.com/
+-->

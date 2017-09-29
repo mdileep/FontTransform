@@ -2317,7 +2317,7 @@ namespace CsPotrace
 			return svg;
 		}
 
-		public static string AsSVG(Bitmap bitmap, bool clockwise, bool useCubicCurves, int turdSize, bool useOddEven)
+		public static string AsSVG(Bitmap bitmap,double size, bool clockwise, bool useCubicCurves, int turdSize, bool useOddEven)
 		{
 			var ListOfPaths = new List<List<Curve>>();
 			var pathList = new List<Path>();
@@ -2329,7 +2329,7 @@ namespace CsPotrace
 				TurdSize = turdSize
 			});
 
-			string svg = DrawSVG(bitmap.Width, bitmap.Height, 1, useOddEven, pathList);
+			string svg = DrawSVG(bitmap.Width, bitmap.Height, size, useOddEven, pathList);
 
 			ListOfPaths = null;
 			return svg;

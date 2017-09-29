@@ -14,10 +14,12 @@ namespace FontTransformers
 	class Runner
 	{
 		static string debugPath = "~";
+		const string SVGTempalte = "svg.xml";
 		static bool genDebugFiles = true;
 		public const int Precision = 1;
+		public static int Size = 1;
 
-		public static void ProcessGlif(string srcDirectory, string targetDirectory, string transDefFile, bool includeOriginal, int turdSize)
+		public static void ProcessUFO(string srcDirectory, string targetDirectory, string transDefFile, bool includeOriginal, int turdSize)
 		{
 			var srcDirectoryInfo = new DirectoryInfo(srcDirectory);
 			targetDirectory = new DirectoryInfo(targetDirectory).FullName;
@@ -64,6 +66,7 @@ namespace FontTransformers
 				Console.ResetColor();
 			}
 		}
+
 		internal static void ProcessSVG(string srcFile, string targetFile, string transDefFile, bool includeOriginal, int turdSize)
 		{
 			XmlDocument document = new XmlDocument();
@@ -75,7 +78,7 @@ namespace FontTransformers
 			XmlReader reader = XmlReader.Create(s, settings);
 			document.Load(reader);
 
-			string rules = File.ReadAllText("rules2.xml");
+			string rules = File.ReadAllText(SVGTempalte);
 			int cnt = 1;
 
 			XmlNodeList glyphs = document.GetElementsByTagName("glyph");
@@ -91,11 +94,10 @@ namespace FontTransformers
 
 				var name = glyph.Attributes["glyph-name"].InnerText;
 
-				if (name != "g")
+				if (name != "Y")
 				{
-					//continue;
+					continue;
 				}
-
 
 				name = cnt + "." + name;
 				Console.Write(name);
@@ -110,17 +112,31 @@ namespace FontTransformers
 									.Replace("$minX", WH.MinX.ToString())
 									.Replace("$minY", WH.MinY.ToString())
 									.Replace("$path", d2);
-				//string relativeSVG = rules.Replace("$width", WH.x.ToString()).Replace("$height", WH.y.ToString()).Replace("$path", d);
 
+				//string relativeSVG = rules.Replace("$width", WH.x.ToString()).Replace("$height", WH.y.ToString()).Replace("$path", d);
 				//if (genDebugFiles)
 				//{
-				//	File.WriteAllText(DebugFile("SVG", ".svg", name ), relativeSVG);
-				//	File.WriteAllText(DebugFile("SVG2", ".svg", name ), absoluteSVG);
+				//	File.WriteAllText(DebugFile("SVG", ".svg", name), relativeSVG);
+				//	File.WriteAllText(DebugFile("SVG2", ".svg", name), absoluteSVG);
 				//}
 
 				string targetPath = DoConvert2(name, absoluteSVG, transDefFile, includeOriginal, turdSize, WH.MinX, WH.MinY);
 
+				if (Size != 1)
+				{
+					if (glyph.Attributes["horiz-adv-x"] == null)
+					{
+						Debugger.Break();
+					}
+					else
+					{
+						double horiz = Convert.ToDouble(glyph.Attributes["horiz-adv-x"].InnerText);
+						glyph.Attributes["horiz-adv-x"].InnerText = (horiz * Size).ToString("0");
+					}
+				}
+
 				glyph.Attributes["d"].InnerText = targetPath;
+
 				cnt++;
 
 				Console.WriteLine(" -" + (DateTime.Now - start).TotalMilliseconds + "ms");
@@ -158,8 +174,8 @@ namespace FontTransformers
 			bool targtDirection = TargetDirection(glifFile);
 
 			//Step#4
-			string svg = PotraceWrapper.AsSVG(bitmap, false, false, turdSize, false);
-			string svg2 = PotraceWrapper.AsSVG(bitmap, false, true, turdSize, false);
+			string svg = PotraceWrapper.AsSVG(bitmap, Size, false, false, turdSize, false);
+			string svg2 = PotraceWrapper.AsSVG(bitmap, Size, false, true, turdSize, false);
 
 			//Step#5
 			ViewBox VB = ExtractViewBox(rawSVG); //Can be made part of ConvertToSVG of Step#1
@@ -243,8 +259,8 @@ namespace FontTransformers
 			bool targtDirection = TargetSVGDirection(rawSVG);
 
 			//Step#3
-			string targetSVG = PotraceWrapper.AsSVG(bitmap, false, false, turdSize, false);
-			string targetSVG2 = PotraceWrapper.AsSVG(bitmap, false, true, turdSize, false);
+			string targetSVG = PotraceWrapper.AsSVG(bitmap, Size, false, false, turdSize, false);
+			string targetSVG2 = PotraceWrapper.AsSVG(bitmap, Size, false, true, turdSize, false);
 
 			//Step#4
 			string targetPath = ExtractPath(targetSVG);
@@ -785,11 +801,11 @@ namespace FontTransformers
 					int rgb = (col.R + col.G + col.B) / 3;
 					if (rgb == 0)
 					{
-						rgb = 255-col.A;
-						bmap.SetPixel(i, j, Color.FromArgb(rgb,rgb,rgb));
+						rgb = 255 - col.A;
+						bmap.SetPixel(i, j, Color.FromArgb(rgb, rgb, rgb));
 						continue;
 					}
-					
+
 					bmap.SetPixel(i, j, Color.FromArgb(255 - col.R, 255 - col.G, 255 - col.B));
 				}
 			}
@@ -866,6 +882,21 @@ namespace FontTransformers
 			{
 				outline.InnerXml = s;
 			}
+
+			if (Size != 1)
+			{
+				var advances = g.GetElementsByTagName("advance");
+				if (advances != null && advances.Count != 0)
+				{
+					var advance = advances[0];
+					if (advance != null)
+					{
+						var width = advance.Attributes["width"].InnerText;
+						advance.Attributes["width"].InnerText = (Convert.ToDouble(width) * Size).ToString("0");
+					}
+				}
+			}
+
 			return g.InnerXml;
 		}
 
@@ -949,7 +980,7 @@ namespace FontTransformers
 		static string ConvertToSVG(string glifFile)
 		{
 			glyph g = Export.Deserialise(glifFile);
-			if (g.outline == null || g.outline.component != null)
+			if (g.outline == null || g.outline.contour == null || g.outline.component != null)
 			{
 				return "";
 			}

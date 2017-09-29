@@ -148,7 +148,7 @@ namespace FontTransformers
 
 		public override string ToString()
 		{
-			return x + " , " + y;
+			return (type == "" ? "" : type + " ") + x + " , " + y;
 		}
 	}
 
@@ -344,11 +344,11 @@ namespace FontTransformers
 								w, h,
 								contours,
 								points,
-								polygon, 
+								polygon,
 								vx1, vy1);
 			return s;
 		}
-		
+
 		static string ToPath(Contour contour)
 		{
 			string lastCurve = "";
@@ -411,14 +411,22 @@ namespace FontTransformers
 		{
 			string s = "";
 			bool first = true;
-			bool QCurve = false;
+			bool UnfinishedQCurve = false;
+			int index = 0;
 			foreach (Contour C in Groups)
 			{
+				index++;
 				if (C.point.Length == 0)
 				{
 					continue;
 				}
 				string groupType = C.point[0].type;
+				if (groupType == "curve")
+				{
+					groupType = "qcurve";
+				}
+
+
 				string smooth = C.point[0].smooth;
 				Point P0 = C.point[0];
 				if (first)
@@ -437,12 +445,12 @@ namespace FontTransformers
 					{
 						s = s + string.Format("L{0} {1} \r\n", P0.x, P0.y);
 					}
-					if (groupType == "qcurve" || groupType == "curve")
+					if (groupType == "qcurve")
 					{
-						if (QCurve)
+						if (UnfinishedQCurve)
 						{
 							s = s + string.Format("{0} {1} \r\n", P0.x, P0.y);
-							QCurve = false;
+							UnfinishedQCurve = false;
 						}
 						else
 						{
@@ -455,33 +463,72 @@ namespace FontTransformers
 				int cnt = 0;
 				Point Prev = null;
 
-				if (C.point.Length == 2 && groupType == "qcurve")
+				if (C.point.Length == 2)
 				{
-					Point P1 = C.point[0];
-					Point P2 = C.point[1];
-
-					Point Mid = null;
-
-					Mid = new Point
+					if (groupType == "qcurve")
 					{
-						x = (P2.x + P1.x) / 2,
-						y = (P2.y + P1.y) / 2,
-					};
+						Point P1 = C.point[0];
+						Point P2 = C.point[1];
 
-					if (first)
-					{
-						s = s + string.Format("Q{0} {1} ", P2.x, P2.y);
-						first = false;
+						Point Mid = null;
+
+						Mid = new Point
+						{
+							x = (P2.x + P1.x) / 2,
+							y = (P2.y + P1.y) / 2,
+						};
+
+						if (first)
+						{
+							s = s + string.Format("Q{0} {1} ", P2.x, P2.y);
+							first = false;
+						}
+						else
+						{
+							s = s + string.Format("Q{0} {1} {2} {3}\r\n", P1.x, P1.y, Mid.x, Mid.y);
+						}
+						UnfinishedQCurve = false;
 					}
-					else
-					{
-						s = s + string.Format("Q{0} {1} {2} {3}\r\n", P1.x, P1.y, Mid.x, Mid.y);
-					}
 
-					QCurve = true;
+					if (groupType == "line")
+					{
+						foreach (Point P in C.point)
+						{
+							if (cnt == 0)
+							{
+								if (first)
+								{
+									Prev = P;
+									cnt++;
+									first = false;
+									continue;
+								}
+								if (!first)
+								{
+									if (groupType == "line")
+									{
+										s = s + string.Format("L{0} {1} \r\n", P.x, P.y);
+									}
+									Prev = P;
+									cnt++;
+									continue;
+								}
+							}
+							if (cnt == 1)
+							{
+								if (groupType == "line")
+								{
+									s = s + string.Format("L{0} {1} \r\n", P.x, P.y);
+								}
+							}
+							cnt++;
+							Prev = P;
+						}
+					}
 				}
 
-				if (C.point.Length > 2 || (C.point.Length == 2 && groupType == "line"))
+
+				if (C.point.Length > 2)
 				{
 					foreach (Point P in C.point)
 					{
@@ -495,67 +542,81 @@ namespace FontTransformers
 							};
 						}
 
-						if (first && cnt == 0)
+						if (cnt == 0)
 						{
-							Prev = P;
-							cnt++;
-							first = false;
-							continue;
+							if (first)
+							{
+								Prev = P;
+								cnt++;
+								first = false;
+								continue;
+							}
+							if (!first)
+							{
+								if (smooth == "yes")
+								{
+									if (UnfinishedQCurve)
+									{
+										s = s + string.Format("{0} {1} \r\n", P.x, P.y);
+										UnfinishedQCurve = false;
+									}
+									else
+									{
+										s = s + string.Format("T{0} {1} \r\n", P.x, P.y);
+									}
+								}
+								else if (groupType == "line")
+								{
+									s = s + string.Format("L{0} {1} \r\n", P.x, P.y);
+								}
+								else if (groupType == "qcurve")
+								{
+									if (UnfinishedQCurve)
+									{
+										s = s + string.Format("{0} {1} \r\n", P.x, P.y);
+									}
+									else
+									{
+										s = s + string.Format("Q{0} {1} ", P.x, P.y);
+										UnfinishedQCurve = true;
+									}
+								}
+								Prev = P;
+								cnt++;
+								continue;
+							}
 						}
-						if (!first && cnt == 0)
-						{
-							if (smooth == "yes")
-							{
-								if (QCurve)
-								{
-									s = s + string.Format("{0} {1} \r\n", P.x, P.y);
-									QCurve = false;
-								}
-								else
-								{
-									s = s + string.Format("T{0} {1} \r\n", P.x, P.y);
-								}
-							}
-							else if (groupType == "line")
-							{
-								s = s + string.Format("L{0} {1} \r\n", P.x, P.y);
-							}
-							else if (groupType == "qcurve")
-							{
-								if (QCurve)
-								{
-									s = s + string.Format("{0} {1} \r\n", P.x, P.y);
-									QCurve = false;
-								}
-								else
-								{
-									s = s + string.Format("T{0} {1} \r\n", P.x, P.y);
-								}
-							}
-							Prev = P;
-							cnt++;
-							continue;
-						}
+
 						if (cnt == 1)
 						{
-							s = s + string.Format("Q{0} {1} ", P.x, P.y);
-							QCurve = true;
-						}
-						else if (cnt == 2)
-						{
-							s = s + string.Format("{0} {1} \r\n", Mid.x, Mid.y);
-							QCurve = false;
-						}
-						else
-						{
-							if (QCurve)
+							if (UnfinishedQCurve)
 							{
 								s = s + string.Format("{0} {1} \r\n", Mid.x, Mid.y);
-								QCurve = false;
 							}
 							else
 							{
-								s = s + string.Format("T{0} {1} \r\n", Mid.x, Mid.y);
+								if (groupType == "line")
+								{
+									s = s + string.Format("L{0} {1} \r\n", P.x, P.y);
+								}
+								else
+								{
+									s = s + string.Format("{0} {1} \r\n", Mid.x, Mid.y);
+									UnfinishedQCurve = true;
+								}
+							}
+
+						}
+						else
+						{
+							if (groupType == "line")
+							{
+								s = s + string.Format("L{0} {1} \r\n", P.x, P.y);
+							}
+							else
+							{
+								s = s + string.Format("T{0} {1} \r\n", P.x, P.y);
+								UnfinishedQCurve = false;
 							}
 						}
 						cnt++;

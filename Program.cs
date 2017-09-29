@@ -22,9 +22,9 @@
 			bool includeOriginal = (args[3] == "1");
 			int turdSize = Convert.ToInt32(args[4]);
 #else
-			string srcFile = @"CiSfOpenHand.svg";
-			string targetFile = @"CiSfOpenHand2.svg";
-			string transDefFile = "rules.xml";
+			string srcFile = @"_Ramaraja-Regular.svg";
+			string targetFile = @"Ramaraja-Regular.svg";
+			string transDefFile = @"Textures\Fills\Topography.xml";
 			bool includeOriginal = false;
 			int turdSize = 25;
 #endif
@@ -46,13 +46,13 @@
 			bool includeOriginal = (args[3] == "1");
 			int turdSize = Convert.ToInt32(args[4]);
 #else
-			string srcDirectory = @"CiSfOpenHand.ufo";
-			string targetDirectory = @"CiSfOpenHand2.ufo";
-			string transDefFile = "rules.xml";
+			string srcDirectory = @"_Ramaraja-Regular.ufo";
+			string targetDirectory = @"Ramaraja-Regular.ufo";
+			string transDefFile = @"Textures\Fills\Topography.xml";
 			bool includeOriginal = false;
-			int turdSize = 1;
+			int turdSize = 25;
 #endif
-			Runner.ProcessGlif(srcDirectory, targetDirectory, transDefFile, includeOriginal, turdSize);
+			Runner.ProcessUFO(srcDirectory, targetDirectory, transDefFile, includeOriginal, turdSize);
 		}
 
 

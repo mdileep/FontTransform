@@ -1,0 +1,14 @@
+<svg  version="1.1" width="$width" height="$height"  viewBox="$viewBox" xmlns="http://www.w3.org/2000/svg">
+  <path  style="fill:url(#BrickWall);" d="$path" />
+  <defs>
+    <pattern id="BrickWall"
+       x="0" y="0" width="50" height="50"
+       patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+      <path style="stroke:#000000;fill:#000000;"
+            d="M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z" />
+    </pattern>
+  </defs>
+</svg>
+<!--
+Based on http://www.heropatterns.com/
+-->

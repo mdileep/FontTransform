@@ -1,0 +1,14 @@
+<svg  version="1.1" width="$width" height="$height"  viewBox="$viewBox" xmlns="http://www.w3.org/2000/svg">
+  <path  style="fill:url(#ParkayFloor);" d="$path" />
+  <defs>
+    <pattern id="ParkayFloor"
+     x="0" y="0" width="40" height="40"
+     patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+      <path style="stroke:#000000;fill:#000000;"
+          d="M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2z" />
+    </pattern>
+  </defs>
+</svg>
+<!--
+Based on http://www.heropatterns.com/
+-->
