@@ -52,8 +52,9 @@
     <ApplicationIcon>Research.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Svg">
-      <HintPath>..\..\..\Users\nez841\Downloads\SVG-master\vvvv\public\common\src\thirdparty\Svg.dll</HintPath>
+    <Reference Include="Svg, Version=1.6.1.34843, Culture=neutral, PublicKeyToken=ae2df1f3340631bb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>assemblies\Svg.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -70,8 +71,435 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CiSfOpenHand.ufo\features.fea">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\fontinfo.plist">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\a.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\ampersand.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\aogonek.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\asciicircum.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\asciitilde.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\asterisk.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\at.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\A_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\A_ogonek.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\b.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\backslash.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\bar.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\braceleft.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\braceright.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\bracketleft.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\bracketright.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\B_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\c.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\cacute.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\cent.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\colon.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\comma.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\contents.plist">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\copyright.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\C_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\C_acute.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\d.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\degree.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\divide.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\dollar.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\D_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\D_elta.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\e.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\eight.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\eogonek.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\equal.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\exclam.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\E_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\E_ogonek.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\f.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\five.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\four.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\F_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\g.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\grave.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\greater.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\G_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\h.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\hyphen.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\H_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\i.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\I_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\j.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\J_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\k.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\K_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\l.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\less.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\lslash.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\L_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\L_slash.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\m.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\multiply.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\M_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\n.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\nacute.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\nine.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\nonmarkingreturn.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\numbersign.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\N_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\N_acute.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\o.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\oacute.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\one.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\onehalf.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\onequarter.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\oslash.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\O_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\O_acute.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\p.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\parenleft.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\parenright.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\percent.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\period.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\periodcentered.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\plus.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\plusminus.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\P_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\q.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\question.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\quotedbl.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\quotedblleft.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\quotedblright.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\quoteleft.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\quoteright.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\quotesingle.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\Q_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\r.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\registered.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\R_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\s.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\sacute.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\section.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\semicolon.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\seven.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\six.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\slash.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\space.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\sterling.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\S_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\S_acute.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\t.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\three.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\two.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\T_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\u.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\underscore.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\uni00B_2.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\uni00B_3.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\uni00B_5.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\U_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\v.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\V_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\w.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\W_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\x.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\X_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\y.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\yen.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\Y_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\z.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\zacute.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\zdotaccent.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\zero.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\Z_.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\Z_acute.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\Z_dotaccent.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\_notdef.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\glyphs\_null.glif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CiSfOpenHand.ufo\metainfo.plist">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assemblies\Svg.dll" />
     <Content Include="Research.ico" />
     <Content Include="Textures.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

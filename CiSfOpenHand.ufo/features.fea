@@ -1,0 +1,20 @@
+
+
+@GDEF_Simple = [\space \exclam \quotedbl \numbersign \dollar \percent \ampersand 
+	\quotesingle \parenleft \parenright \asterisk \plus \comma \hyphen \period 
+	\slash \zero \one \two \three \four \five \six \seven \eight \nine \colon \semicolon 
+	\less \equal \greater \question \at \A \B \C \D \E \F \G \H \I \J \K \L \M \N \O \P \Q \R \S \T 
+	\U \V \W \X \Y \Z \bracketleft \backslash \bracketright \asciicircum \underscore 
+	\grave \a \b \c \d \e \f \g \h \i \j \k \l \m \n \o \p \q \r \s \t \u \v \w \x \y \z \braceleft \bar 
+	\braceright \asciitilde \cent \sterling \yen \section \copyright \registered 
+	\degree \plusminus \uni00B2 \uni00B3 \uni00B5 \periodcentered \onequarter 
+	\onehalf \Oacute \multiply \oacute \divide \oslash \Aogonek \aogonek \Cacute 
+	\cacute \Eogonek \eogonek \Lslash \lslash \Nacute \nacute \Sacute \sacute \Zacute 
+	\zacute \Zdotaccent \zdotaccent \Delta \quoteleft \quoteright \quotedblleft 
+	\quotedblright \.null \nonmarkingreturn ];
+
+table GDEF {
+  GlyphClassDef @GDEF_Simple, , , ;
+
+} GDEF;
+
